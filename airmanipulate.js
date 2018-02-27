@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-
-    getLocation(function (latitude, longitude) {
+    //set interval added to refresh data on every minute
+    setInterval(getLocation(function (latitude, longitude) {
         positioning = {lat: latitude, long:longitude};
         console.log(positioning);
         var urls = "https://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?lat="+positioning.lat+"&lng="+positioning.long+"&fDstL=0&fDstU=100";
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         });
 
-    });
+    }),60000);
 
 });
 //stores current location
