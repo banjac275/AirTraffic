@@ -1,14 +1,31 @@
 #content{
     box-shadow: 10px 10px 5px grey;
     width: 500px;
-    height: 600px;
+    height: 570px;
     background-color: #d6d6d6;
     border-radius: 10px;
     position: absolute;
-    top:0;
+    top:-4%;
     bottom: 0;
     left: 0;
     right: 0;
 
     margin: auto;
+    display: inline-block;
+}
+
+h3{
+    font-family: 'Arvo', serif;
+    padding-top: 2%;
+}
+
+footer{
+    display: table;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0em;
+    bottom: 1%;
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
 }
