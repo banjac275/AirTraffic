@@ -26,9 +26,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     } else {
                         bound = "<i class='fas fa-plane' data-fa-transform='rotate-315'>";
                     }
-                    table.innerHTML += "<tr><th scope='row'>"+num+"</th><td>"+bound+"</i></td><td>"+
-                    sorted[i].Alt+" ft</td><td>"+sorted[i].OpIcao+" "+sorted[i].Sqk+"</td></tr>";
+                    var tagg = "";
+                    //I am still unsure to use either Call or OpIcao to get code if necessary
+                    if(sorted[i].OpIcao == undefined){
+                        var j = 0;
+                        while(isNaN(String(sorted[i].Call).charAt(j))){
+                            tagg += String(sorted[i].Call).charAt(j);
+                            j++;
+                        }
+                    } else {
+                        tagg = sorted[i].OpIcao;
+                    }
+                    table.innerHTML += "<tr class='inserted'><th scope='row'>"+num+"</th><td>"+bound+"</i></td><td>"+
+                    sorted[i].Alt+" ft</td><td>"+tagg+" "+sorted[i].Sqk+"</td></tr>";
                     num++;
+                }
+
+                var classname = document.getElementsByClassName("inserted");
+                console.log(classname);
+
+                for (var k = 0; k < classname.length; k++) {
+                    classname[k].addEventListener('click', rowClicked, false);
                 }
             }
         });
@@ -99,3 +117,41 @@ var loadJSONP = (function(){
         document.getElementsByTagName('head')[0].appendChild(script);
     };
 })();
+
+//handles clicked rows in table
+var rowClicked = function() {
+    document.getElementById("masking").setAttribute("class", "shown");
+    var attribute = this.childNodes[3].innerHTML;
+    console.log(attribute);
+    for(var i = 0; i < jsonrec.length; i++){
+        var taggs = "";
+        if(jsonrec[i].OpIcao == undefined){
+            var j = 0;
+            while(isNaN(String(jsonrec[i].Icao).charAt(j))){
+                taggs += String(jsonrec[i].Icao).charAt(j);
+                j++;
+            }
+        } else {
+            taggs = jsonrec[i].OpIcao;
+        }
+        var flightnumber = taggs+" "+jsonrec[i].Sqk;
+        if(flightnumber == attribute){
+            var logourl = String(jsonrec[i].Op).replace(" ", "").toLowerCase()+".com";
+            document.getElementById("infodiv").innerHTML = "<div class='col-lg-12 text-center'>" +
+                "<h3>Flight Information</h3></div><div class='col-lg-12 text-left row'>" +
+                "<h5 class='col-lg-12' >Aircraft</h5>" +
+                "<h6 class='col-lg-12'>Manufacturer: "+jsonrec[i].Man+"</h6>" +
+                "<h6 class='col-lg-12'>Model: "+jsonrec[i].Mdl+"</h6>" +
+                "<h5 class='col-lg-12'>Origin and Destination</h5>" +
+                "<h6 class='col-lg-12'>From: "+jsonrec[i].From+"</h6>" +
+                "<h6 class='col-lg-12'>To: "+jsonrec[i].To+"</h6>" +
+                "<h5 class='col-lg-12'>Logo</h5>" +
+                "<img src='https://logo.clearbit.com/"+logourl+"' height='70px' width='70px'></div>" +
+                "<button id='closediv' class='col-lg-12'>Close</button>";
+        }
+    }
+
+    document.getElementById("closediv").addEventListener("click", function () {
+        document.getElementById("masking").setAttribute("class", "hidden");
+    });
+};
