@@ -13,13 +13,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 var sorted = jsonrec.acList.sort(function (a,b) {
                     return b.Alt - a.Alt;
                 });
-
+                jsonrec = sorted;
                 console.log(sorted);
                 var num = 1;
                 table.innerHTML = "";
                 for(var i = 0; i < sorted.length; i++){
-                    table.innerHTML += "<tr><th scope='row'>"+num+"</th><td>Mark</td><td>"+sorted[i].Alt
-                        +" ft</td><td></td></tr>";
+                    var bound = null;
+                    var numm = String(sorted[i].Alt).charAt(0) + String(sorted[i].Alt).charAt(1);
+                    //like this beacuse I read somewhere that planes that go west are on even 1000's feet altitudes and east on odd
+                    if(Number(numm) % 2 == 0){
+                        bound = "<i class='fas fa-plane' data-fa-transform='rotate-225'>";
+                    } else {
+                        bound = "<i class='fas fa-plane' data-fa-transform='rotate-315'>";
+                    }
+                    table.innerHTML += "<tr><th scope='row'>"+num+"</th><td>"+bound+"</i></td><td>"+
+                    sorted[i].Alt+" ft</td><td>"+sorted[i].OpIcao+" "+sorted[i].Sqk+"</td></tr>";
+                    num++;
                 }
             }
         });
