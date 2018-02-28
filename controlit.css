@@ -31,17 +31,11 @@ footer{
     display: inline-block;
 }
 
-#masking{
-    /*display: none;*/
-    opacity: 0;
-    visibility: hidden;
-}
-
 #masking.hidden{
     /*display: none;*/
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s 2s, opacity 2s linear;
+    transition: opacity 1.5s linear;
 }
 
 #masking.shown{
@@ -55,7 +49,7 @@ footer{
     left: 0;
     visibility: visible;
     opacity: 1;
-    transition: opacity 2s linear;
+    transition: opacity 1.5s linear;
 }
 
 #infodiv{
@@ -80,3 +74,11 @@ img{
 }
 
 tbody > tr { cursor: pointer; }
+
+h4{
+    color: #4f4f4f;
+}
+
+@media only screen and (max-width: 479px){
+    #content { width: 90%; }
+}

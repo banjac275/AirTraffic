@@ -152,7 +152,7 @@ var rowClicked = function() {
                 "<h6 class='col-lg-12'>From: "+jsonrec[i].From+"</h6>" +
                 "<h6 class='col-lg-12'>To: "+jsonrec[i].To+"</h6>" +
                 "<h5 class='col-lg-12'>Logo</h5>" +
-                "<img src='https://logo.clearbit.com/"+logourl+"' height='70px' width='70px'></div>" +
+                "<img src='https://logo.clearbit.com/"+logourl+"' height='70px' width='70px' alt='"+jsonrec[i].Op+"'></div>" +
                 "<button id='closediv' class='col-lg-12'>Close</button>";
         }
     }
