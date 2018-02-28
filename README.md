@@ -8,7 +8,7 @@ Firstly, it asks user for location, if the location is not provided the app will
 
 <h3>What can be done more?</h3>
 
-Probably the hight can be transfered to meters, if one desires, but I left it at feet, because most airlines count it that way and also, I think, that when you fly captain says how high are you in feet. The system do obtain logos can be better, but the logo API works only with domains of companies, so that would require using stuff from node.js interpreter as the company name to domain API works only with node.js and a couple other languages, with which I don't know how to do with, and for plain js there was no support that I could find. There can also be added a link to the airline when you click on the logo, as well as the links to the airports arrivals and departures. And of course, there can be added a map on the info page which can show a flight pattern and current location on map.
+Probably the hight can be transfered to meters, if one desires, but I left it at feet, because most airlines count it that way and also, I think, that when you fly captain says how high are you in feet. The system do obtain logos can be better, but the logo API works only with domains of companies, so that would require using stuff from node.js interpreter as the company name to domain API works only with node.js and a couple other stuff, with which I don't know how to do with, and for plain js there was no support that I could find. There can also be added a link to the airline when you click on the logo, as well as the links to the airports arrivals and departures. And of course, there can be added a map on the info page which can show a flight pattern and current location on map.
 
 <h3>Technical details</h3>
 
