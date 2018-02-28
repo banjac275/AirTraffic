@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a6c57840-07a9-4819-a0d9-66e7ecf18624" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/airmanipulate.js" afterPath="$PROJECT_DIR$/airmanipulate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlit.css" afterPath="$PROJECT_DIR$/controlit.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,28 +18,28 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="272">
               <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controlit.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controlit.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controlit.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="77" column="22" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+            <state relative-caret-position="226">
+              <caret line="43" column="52" lean-forward="false" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="airmanipulate.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="airmanipulate.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/airmanipulate.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="901">
-              <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
+              <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -64,8 +65,8 @@
         <option value="$PROJECT_DIR$/php/planesdata.php" />
         <option value="$PROJECT_DIR$/scripts/airmanipulate.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/controlit.css" />
         <option value="$PROJECT_DIR$/airmanipulate.js" />
+        <option value="$PROJECT_DIR$/controlit.css" />
       </list>
     </option>
   </component>
@@ -225,12 +226,12 @@
       <updated>1519736727853</updated>
       <workItem from="1519736730178" duration="864000" />
       <workItem from="1519737963027" duration="28303000" />
-      <workItem from="1519771183797" duration="3443000" />
+      <workItem from="1519771183797" duration="5509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32610000" />
+    <option name="totallyTimeSpent" value="34676000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -316,9 +317,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/airmanipulate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="272">
           <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding />
         </state>
@@ -326,16 +335,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controlit.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="77" column="22" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/airmanipulate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
+        <state relative-caret-position="226">
+          <caret line="43" column="52" lean-forward="false" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
           <folding />
         </state>
       </provider>

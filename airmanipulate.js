@@ -137,6 +137,12 @@ var rowClicked = function() {
         var flightnumber = taggs+" "+jsonrec[i].Sqk;
         if(flightnumber == attribute){
             var logourl = String(jsonrec[i].Op).replace(" ", "").toLowerCase()+".com";
+            if(jsonrec[i].Op == "Bulgaria Air")//exeption because of bulgaria air website
+                logourl = "air.bg";
+            if(jsonrec[i].Op == "Swiss International Air Lines")//exeption because of swiss air website
+                logourl = "swiss.com";
+            if(jsonrec[i].Op == "Saudi Arabian Airlines")//exeption because of swiss air website
+                logourl = "saudia.com";
             document.getElementById("infodiv").innerHTML = "<div class='col-lg-12 text-center'>" +
                 "<h3>Flight Information</h3></div><div class='col-lg-12 text-left row'>" +
                 "<h5 class='col-lg-12' >Aircraft</h5>" +
