@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 console.log(sorted);
                 var num = 1;
                 table.innerHTML = "";
+                if(sorted.length > 9){
+                    document.getElementById("content").style.overflowY = "scroll";
+                } else {
+                    document.getElementById("content").style.overflowY = "hidden";
+                }
                 for(var i = 0; i < sorted.length; i++){
                     var bound = null;
                     var numm = String(sorted[i].Alt).charAt(0) + String(sorted[i].Alt).charAt(1);
@@ -52,6 +57,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
 
     }),60000);
+
+    /*loadJSONP("https://company.clearbit.com/v1/domains/find?name=Segment&auth=sk_d3202709137c52371c2185035d706ba0", function(data) {
+        console.log(data);
+    });*/
 
 });
 //stores current location
@@ -144,13 +153,13 @@ var rowClicked = function() {
             if(jsonrec[i].Op == "Saudi Arabian Airlines")//exeption because of swiss air website
                 logourl = "saudia.com";
             document.getElementById("infodiv").innerHTML = "<div class='col-lg-12 text-center'>" +
-                "<h3>Flight Information</h3></div><div class='col-lg-12 text-left row'>" +
+                "<h3>Flight Information</h3></div><div class='col-lg-12 text-left row'><hr/>" +
                 "<h5 class='col-lg-12' >Aircraft</h5>" +
                 "<h6 class='col-lg-12'>Manufacturer: "+jsonrec[i].Man+"</h6>" +
-                "<h6 class='col-lg-12'>Model: "+jsonrec[i].Mdl+"</h6>" +
+                "<h6 class='col-lg-12'>Model: "+jsonrec[i].Mdl+"</h6><hr/>" +
                 "<h5 class='col-lg-12'>Origin and Destination</h5>" +
                 "<h6 class='col-lg-12'>From: "+jsonrec[i].From+"</h6>" +
-                "<h6 class='col-lg-12'>To: "+jsonrec[i].To+"</h6>" +
+                "<h6 class='col-lg-12'>To: "+jsonrec[i].To+"</h6><hr/>" +
                 "<h5 class='col-lg-12'>Logo</h5>" +
                 "<img src='https://logo.clearbit.com/"+logourl+"' height='70px' width='70px' alt='"+jsonrec[i].Op+"'></div>" +
                 "<button id='closediv' class='col-lg-12'>Close</button>";
