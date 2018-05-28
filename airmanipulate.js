@@ -58,10 +58,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }),60000);
 
-    /*loadJSONP("https://company.clearbit.com/v1/domains/find?name=Segment&auth=sk_d3202709137c52371c2185035d706ba0", function(data) {
-        console.log(data);
-    });*/
-
 });
 //stores current location
 var positioning = {};
@@ -101,7 +97,7 @@ function showError(error) {
 }
 
 //handles json requests
-var loadJSONP = (function(){
+var loadJSONP = (() => {
     var unique = 0;
     return function(url, callback, context) {
         // INIT
@@ -128,9 +124,9 @@ var loadJSONP = (function(){
 })();
 
 //handles clicked rows in table
-var rowClicked = function() {
+var rowClicked = (e) => {
     document.getElementById("masking").setAttribute("class", "shown");
-    var attribute = this.childNodes[3].innerHTML;
+    var attribute = e.srcElement.parentNode.childNodes[3].innerHTML;
     console.log(attribute);
     for(var i = 0; i < jsonrec.length; i++){
         var taggs = "";
@@ -145,28 +141,49 @@ var rowClicked = function() {
         }
         var flightnumber = taggs+" "+jsonrec[i].Sqk;
         if(flightnumber == attribute){
-            var logourl = String(jsonrec[i].Op).replace(" ", "").toLowerCase()+".com";
-            if(jsonrec[i].Op == "Bulgaria Air")//exeption because of bulgaria air website
-                logourl = "air.bg";
-            if(jsonrec[i].Op == "Swiss International Air Lines")//exeption because of swiss air website
-                logourl = "swiss.com";
-            if(jsonrec[i].Op == "Saudi Arabian Airlines")//exeption because of swiss air website
-                logourl = "saudia.com";
-            document.getElementById("infodiv").innerHTML = "<div class='col-lg-12 text-center'>" +
-                "<h3>Flight Information</h3></div><div class='col-lg-12 text-left row'><hr/>" +
-                "<h5 class='col-lg-12' >Aircraft</h5>" +
-                "<h6 class='col-lg-12'>Manufacturer: "+jsonrec[i].Man+"</h6>" +
-                "<h6 class='col-lg-12'>Model: "+jsonrec[i].Mdl+"</h6><hr/>" +
-                "<h5 class='col-lg-12'>Origin and Destination</h5>" +
-                "<h6 class='col-lg-12'>From: "+jsonrec[i].From+"</h6>" +
-                "<h6 class='col-lg-12'>To: "+jsonrec[i].To+"</h6><hr/>" +
-                "<h5 class='col-lg-12'>Logo</h5>" +
-                "<img src='https://logo.clearbit.com/"+logourl+"' height='70px' width='70px' alt='"+jsonrec[i].Op+"'></div>" +
-                "<button id='closediv' class='col-lg-12'>Close</button>";
+            let compName = String(jsonrec[i].Op);
+            console.log(compName);
+            getJSON("https://company.clearbit.com/v1/domains/find?name=" + compName, (data) => {
+                console.log(data.logo);//popravio sam dosta ali javlja greske kad ne nadje kompaniju gomno.
+
+                let logourl = data.logo;
+
+                if(compName == "Middle East Airlines")//exeption because not in database
+                    logourl = "https://logo.clearbit.com/mea.com.lb";
+                
+                document.getElementById("infodiv").innerHTML = "<div class='col-lg-12 text-center'>" +
+                    "<h3>Flight Information</h3></div><div class='col-lg-12 text-left row'><hr/>" +
+                    "<h5 class='col-lg-12' >Aircraft</h5>" +
+                    "<h6 class='col-lg-12'>Manufacturer: "+jsonrec[i].Man+"</h6>" +
+                    "<h6 class='col-lg-12'>Model: "+jsonrec[i].Mdl+"</h6><hr/>" +
+                    "<h5 class='col-lg-12'>Origin and Destination</h5>" +
+                    "<h6 class='col-lg-12'>From: "+jsonrec[i].From+"</h6>" +
+                    "<h6 class='col-lg-12'>To: "+jsonrec[i].To+"</h6><hr/>" +
+                    "<h5 class='col-lg-12'>Logo</h5>" +
+                    "<img src='"+logourl+"' height='70px' width='70px' alt='"+jsonrec[i].Op+"'></div>" +
+                    "<button id='closediv' class='col-lg-12'>Close</button>";
+
+                document.getElementById("closediv").addEventListener("click", function () {
+                    document.getElementById("masking").setAttribute("class", "hidden");
+                });
+            });
+
         }
     }
+};
 
-    document.getElementById("closediv").addEventListener("click", function () {
-        document.getElementById("masking").setAttribute("class", "hidden");
-    });
+var getJSON = (url, callback) => {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = '';
+    xhr.withCredentials = false;
+    xhr.setRequestHeader("accept", "application/json");
+    xhr.setRequestHeader("Authorization","Bearer sk_d3202709137c52371c2185035d706ba0");
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            callback(myArr);
+        }
+    };
+    xhr.send();
 };
